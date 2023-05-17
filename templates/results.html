@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Search</title>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <style>
+      body {
+        padding-top: 20px;
+      }
+
+      .card {
+        margin-bottom: 20px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+      }
+
+      .card-content {
+        padding: 20px;
+      }
+
+      .new-search {
+        text-decoration: none;
+        display: inline-block;
+        padding: 6px 12px;
+        margin-bottom: 20px;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 1.42857143;
+        text-align: center;
+        white-space: nowrap;
+        vertical-align: middle;
+        cursor: pointer;
+        background-image: none;
+        border: 1px solid transparent;
+        border-radius: 4px;
+      }
+
+      .search-keywords {
+        background-color: #f5f5f5;
+        padding: 10px;
+        border-radius: 4px;
+      }
+
+      em {
+        color: #d31f21;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Search Results</h1>
+      <p class="search-keywords">
+        Search keywords: <strong>{{ query }}</strong>
+      </p>
+      {% for result in results %}
+      <div class="card">
+        <div class="card-content">
+          <h3>
+            {{ result.highlighted_fields.NAME|default(result.NAME)|safe }}
+          </h3>
+          <div class="d-flex justify-content-between">
+            <div>
+              <p>
+                <b>Location:</b> {{
+                result.highlighted_fields.neighbourhood|default(result.neighbourhood)|safe
+                }}, {{
+                result.highlighted_fields.neighbourhood_group|default(result.neighbourhood_group)|safe
+                }}, {{
+                result.highlighted_fields.country|default(result.country)|safe}}
+              </p>
+            </div>
+            <div>
+              <p><b>Ratings:</b> {{ result.review_rate_number }}/5.0</p>
+            </div>
+          </div>
+          <p>
+            <b>Host Verification:</b> {{
+            result.highlighted_fields.host_identity_verified|default(result.host_identity_verified)|safe
+            }}
+          </p>
+          <p>
+            <b>Instant Bookable:</b> {{
+            result.highlighted_fields.instant_bookable|default(result.instant_bookable)|safe
+            }}
+          </p>
+          <p>
+            <b>Cancellation Policy:</b> {{
+            result.highlighted_fields.cancellation_policy|default(result.cancellation_policy)|safe
+            }}
+          </p>
+          <p>
+            <b>Price:</b> {{
+            result.highlighted_fields.price|default(result.price)|safe }}
+          </p>
+          <p><b>House Rules:</b></p>
+          <p style="text-align: justify; margin-top: 0">
+            {{
+            result.highlighted_fields.house_rules|default(result.house_rules)|safe
+            }}
+          </p>
+          <p>
+            <b>Room Type:</b> {{
+            result.highlighted_fields.room_type|default(result.room_type)|safe
+            }}
+          </p>
+          <p><b>Similarity Score:</b> {{ result.score }}</p>
+        </div>
+      </div>
+      {% endfor %}
+      <div style="margin-top: 34px">
+        <a class="new-search btn btn-primary" href="/">Back</a>
+      </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  </body>
+</html>
