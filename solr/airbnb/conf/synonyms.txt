@@ -21,7 +21,7 @@ fooaaa,baraaa,bazaaa
 GB,gib,gigabyte,gigabytes
 MB,mib,megabyte,megabytes
 Television, Televisions, TV, TVs
-hotel,inn,motel,lodge,resort,hostel,guesthouse,bed and breakfast
+hotel,inn,motel,lodge,resort,hostel,guesthouse
 studio,loft,flat,apartment,suite,living space,condo,bedsit
 room,chamber,suite,space,quarters,lodging,accommodation,place
 private,individual,personal,exclusive,secluded,confidential,non-public,solo
