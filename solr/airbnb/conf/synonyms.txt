@@ -36,6 +36,7 @@ refund,reimbursement,repayment,return,compensation,payback
 smoking,tobacco use,puffing,cigarette use,inhaling
 pets,animals,domestic animals,companions,furry friends
 beach,shore,coast,seaside,sands,waterfront
+non,no,not
 #notice we use "gib" instead of "GiB" so any WordDelimiterGraphFilter coming
 #after us won't split it into two words.
 
